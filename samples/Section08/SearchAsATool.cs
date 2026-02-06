@@ -46,7 +46,7 @@ public static class SearchAsATool
                 instructions: "You are an expert in the companies Internal Knowledge Base (use the 'search_knowledge' tool)",
                 tools: [AIFunctionFactory.Create(searchTool.Search, "search_knowledge")]);
 
-        AgentSession session = await agent.GetNewSessionAsync();;
+        AgentSession session = await agent.CreateSessionAsync();
 
         while (true)
         {

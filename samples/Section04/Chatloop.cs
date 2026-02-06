@@ -18,7 +18,7 @@ public static class Chatloop
         //Create Agent
         ChatClientAgent agent = client.GetChatClient("gpt-4.1-nano").AsAIAgent();
 
-        AgentSession session = await agent.GetNewSessionAsync();
+        AgentSession session = await agent.CreateSessionAsync();
 
         while (true)
         {

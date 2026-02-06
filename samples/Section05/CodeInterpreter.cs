@@ -31,7 +31,7 @@ public static class CodeInterpreter
                 ],
                 instructions: "You can make charts using you 'code_interpreter' tool");
 
-        AgentSession session = await agent.GetNewSessionAsync();;
+        AgentSession session = await agent.CreateSessionAsync();
 
         Console.OutputEncoding = Encoding.UTF8;
         while (true)

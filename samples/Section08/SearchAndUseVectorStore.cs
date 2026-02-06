@@ -42,7 +42,7 @@ public static class SearchAndUseVectorStore
             .GetChatClient("gpt-4.1-nano")
             .AsAIAgent(instructions: "You are an expert in the companies Internal Knowledge Base");
 
-        AgentSession session = await agent.GetNewSessionAsync();;
+        AgentSession session = await agent.CreateSessionAsync();
 
         while (true)
         {

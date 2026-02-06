@@ -21,7 +21,7 @@ public static class Instructions
             .GetChatClient("gpt-4.1-nano")
             .AsAIAgent(instructions: "Speak like a pirate");
 
-        AgentSession session = await agent.GetNewSessionAsync();;
+        AgentSession session = await agent.CreateSessionAsync();
 
         Console.OutputEncoding = Encoding.UTF8;
         while (true)

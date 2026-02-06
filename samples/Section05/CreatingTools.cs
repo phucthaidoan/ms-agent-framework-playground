@@ -30,7 +30,7 @@ public static class CreatingTools
                     AIFunctionFactory.Create(ChangeConsoleColor, "change_console_color", "Change the color of the console")
                 ]);
 
-        AgentSession session = await agent.GetNewSessionAsync();;
+        AgentSession session = await agent.CreateSessionAsync();
 
         Console.OutputEncoding = Encoding.UTF8;
         while (true)

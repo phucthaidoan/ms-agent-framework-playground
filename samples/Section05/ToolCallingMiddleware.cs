@@ -33,7 +33,7 @@ public static class ToolCallingMiddleware
             .Use(Middleware)
             .Build();
 
-        AgentSession session = await agent.GetNewSessionAsync();
+        AgentSession session = await agent.CreateSessionAsync();
 
         Console.OutputEncoding = Encoding.UTF8;
         while (true)

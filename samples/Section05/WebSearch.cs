@@ -31,7 +31,7 @@ public static class WebSearch
                 ],
                 instructions: "You are a Space news Agent (Always in include today's date at the top of your answers)");
 
-        AgentSession session = await agent.GetNewSessionAsync();;
+        AgentSession session = await agent.CreateSessionAsync();
 
         Console.OutputEncoding = Encoding.UTF8;
         while (true)
