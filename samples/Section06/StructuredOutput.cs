@@ -35,7 +35,7 @@ public static class StructuredOutput
         Output.Separator();
 
         Output.Title("Structured Output Call");
-        ChatClientAgentResponse<MovieResult> response = await agent.RunAsync<MovieResult>(question);
+        AgentResponse<MovieResult> response = await agent.RunAsync<MovieResult>(question);
 
         Output.Gray("response.Result = .NET Object you can format as you see fit");
 

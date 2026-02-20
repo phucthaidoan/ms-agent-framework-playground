@@ -32,7 +32,7 @@ public static class LifeOfAnLlmCall
                 instructions: "Speak like a pirate!"
             );
 
-        ChatClientAgentResponse<WeatherResponse> response = await agent.RunAsync<WeatherResponse>("What is the Weather like in Paris?");
+        AgentResponse<WeatherResponse> response = await agent.RunAsync<WeatherResponse>("What is the Weather like in Paris?");
         WeatherResponse result = response.Result;
     }
 

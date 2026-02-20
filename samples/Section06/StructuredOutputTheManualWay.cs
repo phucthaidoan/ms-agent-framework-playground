@@ -51,7 +51,7 @@ public static class StructuredOutputTheManualWay
 
         Output.Gray("response.Result = .NET Object you can format as you see fit");
 
-        MovieResult movieResult = response.Deserialize<MovieResult>(jsonSerializerOptions);
+        MovieResult movieResult = JsonSerializer.Deserialize<MovieResult>(response.Text, jsonSerializerOptions)!;
         foreach (Movie movie in movieResult.Movies)
         {
             Console.WriteLine($"- Title: {movie.Title} - " +

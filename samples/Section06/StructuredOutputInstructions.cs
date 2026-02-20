@@ -26,7 +26,7 @@ public static class StructuredOutputInstructions
 
         string text = "Ben live in the country of kangaroos in the big city to the south west (write the poem in french.)";
 
-        ChatClientAgentResponse<ExtractedData> response = await agent.RunAsync<ExtractedData>(text);
+        AgentResponse<ExtractedData> response = await agent.RunAsync<ExtractedData>(text);
 
         ExtractedData data = response.Result;
         Console.WriteLine($"- Name: {data.Name}");

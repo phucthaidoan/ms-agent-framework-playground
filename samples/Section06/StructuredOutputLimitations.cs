@@ -27,7 +27,7 @@ public static class StructuredOutputLimitations
 
         ChatClientAgent niceWayAgent = client.GetChatClient("gpt-4.1-nano").AsAIAgent(instructions: "You are a Movie Expert");
 
-        ChatClientAgentResponse<List<Movie>> clientAgentResponse = await niceWayAgent.RunAsync<List<Movie>>(question);
+        AgentResponse<List<Movie>> clientAgentResponse = await niceWayAgent.RunAsync<List<Movie>>(question);
         List<Movie> movies = clientAgentResponse.Result;
         foreach (Movie movie in movies)
         {
@@ -66,7 +66,7 @@ public static class StructuredOutputLimitations
             }
         });
 
-        movies = response.Deserialize<List<Movie>>(jsonSerializerOptions);
+        movies = JsonSerializer.Deserialize<List<Movie>>(response.Text, jsonSerializerOptions)!;
         foreach (Movie movie in movies)
         {
             Console.WriteLine($"- Title: {movie.Title} - " +
