@@ -124,7 +124,7 @@ public enum Sample
     [SampleDetails("Streaming Response", SampleSection.Section4)]
     NormalVsStreamingResponse = 400,
 
-    [SampleDetails("Chat-loop (AgentThread)", SampleSection.Section4)]
+    [SampleDetails("Chat-loop (AgentSession)", SampleSection.Section4)]
     Chatloop = 401,
 
     [SampleDetails("Instructions (Prompt Engineering)", SampleSection.Section4)]

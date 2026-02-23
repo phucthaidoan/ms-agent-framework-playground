@@ -38,7 +38,8 @@ public static class Chatloop
                 Output.Gray($"Tokens - In: {response.Usage.InputTokenCount} - Out: {response.Usage.OutputTokenCount}");
             }
 
-            IList<ChatMessage>? messagesInThread = session.GetService<IList<ChatMessage>>();
+            InMemoryChatHistoryProvider? historyProvider = agent.GetService<InMemoryChatHistoryProvider>();
+            IList<ChatMessage> messagesForSession = historyProvider?.GetMessages(session) ?? [];
 
             Output.Separator();
         }
