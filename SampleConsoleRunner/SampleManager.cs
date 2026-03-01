@@ -79,14 +79,8 @@ public static class SampleManager
             case Sample.StructuredOutput:
                 await StructuredOutput.RunSample();
                 break;
-            case Sample.StructuredOutputManualWay:
-                await StructuredOutputTheManualWay.RunSample();
-                break;
             case Sample.StructuredOutputInstructions:
                 await StructuredOutputInstructions.RunSample();
-                break;
-            case Sample.StructuredOutputLimitations:
-                await StructuredOutputLimitations.RunSample();
                 break;
             case Sample.LifeOfAnLlmCall:
                 await LifeOfAnLlmCall.RunSample();
@@ -150,15 +144,9 @@ public enum Sample
 
     [SampleDetails("Structured Output", SampleSection.Section6)]
     StructuredOutput = 600,
-
-    [SampleDetails("Structured Output (More manual way)", SampleSection.Section6)]
-    StructuredOutputManualWay = 601,
-
+    
     [SampleDetails("Structured Output (Instructions)", SampleSection.Section6)]
-    StructuredOutputInstructions = 602,
-
-    [SampleDetails("Structured Output (Limitations)", SampleSection.Section6)]
-    StructuredOutputLimitations = 603,
+    StructuredOutputInstructions = 601,
 
     [SampleDetails("The Life of an LLM Call", SampleSection.Section7)]
     LifeOfAnLlmCall = 700,
