@@ -1,4 +1,19 @@
-﻿using Samples.SampleUtilities;
+﻿using Samples.CV_Screening;
+using Samples.Recipe;
+using Samples.Recipe.V1_HostLoop;
+using Samples.Recipe.V2_ChatLoop;
+using Samples.Recipe.V3_Streaming;
+using Samples.Recipe.V4_DynamicInstructions;
+using Samples.Recipe.V5_RAG;
+using Samples.Recipe.V6_UserMemory;
+using Samples.Recipe.V7_TypedMemory;
+using Samples.CV_Screening.V1_AgentAsTool;
+using Samples.CV_Screening.V2_ChatLoop;
+using Samples.CV_Screening.V3_Streaming;
+using Samples.CV_Screening.V4_MultiRole;
+using Samples.CV_Screening.V5_RAG;
+using Samples.Observability;
+using Samples.SampleUtilities;
 using Samples.Section03;
 using Samples.Section04;
 using Samples.Section05;
@@ -97,6 +112,51 @@ public static class SampleManager
             case Sample.SearchAsATool:
                 await SearchAsATool.RunSample();
                 break;
+            case Sample.CvScreening:
+                await CvScreening.RunSample();
+                break;
+            case Sample.CvScreeningV1:
+                await CvScreeningV1.RunSample();
+                break;
+            case Sample.CvScreeningV2:
+                await CvScreeningV2.RunSample();
+                break;
+            case Sample.CvScreeningV3:
+                await CvScreeningV3.RunSample();
+                break;
+            case Sample.CvScreeningV4:
+                await CvScreeningV4.RunSample();
+                break;
+            case Sample.CvScreeningV5:
+                await CvScreeningV5.RunSample();
+                break;
+            case Sample.MealPlanner:
+                await MealPlanner.RunSample();
+                break;
+            case Sample.MealPlannerV1:
+                await MealPlannerV1.RunSample();
+                break;
+            case Sample.MealPlannerV2:
+                await MealPlannerV2.RunSample();
+                break;
+            case Sample.MealPlannerV3:
+                await MealPlannerV3.RunSample();
+                break;
+            case Sample.MealPlannerV4:
+                await MealPlannerV4.RunSample();
+                break;
+            case Sample.MealPlannerV5:
+                await MealPlannerV5.RunSample();
+                break;
+            case Sample.MealPlannerV6:
+                await MealPlannerV6.RunSample();
+                break;
+            case Sample.MealPlannerV7:
+                await MealPlannerV7.RunSample();
+                break;
+            case Sample.JaegerTracing:
+                await JaegerTracing.RunSample();
+                break;
             case Sample.Interactive:
             default:
                 Console.WriteLine("No sample with that number :-(");
@@ -161,7 +221,52 @@ public enum Sample
     SearchAndUseVectorStore = 802,
 
     [SampleDetails("Search as a Tool", SampleSection.Section8)]
-    SearchAsATool = 803
+    SearchAsATool = 803,
+
+    [SampleDetails("CV Screening & Interview Coordinator", SampleSection.CV_Screening)]
+    CvScreening = 900,
+
+    [SampleDetails("CV Screening V1 - Agent as Tool", SampleSection.CV_Screening)]
+    CvScreeningV1 = 901,
+
+    [SampleDetails("CV Screening V2 - Chat Loop", SampleSection.CV_Screening)]
+    CvScreeningV2 = 902,
+
+    [SampleDetails("CV Screening V3 - Streaming", SampleSection.CV_Screening)]
+    CvScreeningV3 = 903,
+
+    [SampleDetails("CV Screening V4 - Multi Role", SampleSection.CV_Screening)]
+    CvScreeningV4 = 904,
+
+    [SampleDetails("CV Screening V5 - RAG Powered", SampleSection.CV_Screening)]
+    CvScreeningV5 = 905,
+
+    [SampleDetails("Meal Planner — Multi-Agent Refinement", SampleSection.Recipe)]
+    MealPlanner = 1000,
+
+    [SampleDetails("Meal Planner V1 - Host-Orchestrated Loop", SampleSection.Recipe)]
+    MealPlannerV1 = 1001,
+
+    [SampleDetails("Meal Planner V2 - Chat Loop", SampleSection.Recipe)]
+    MealPlannerV2 = 1002,
+
+    [SampleDetails("Meal Planner V3 - Streaming", SampleSection.Recipe)]
+    MealPlannerV3 = 1003,
+
+    [SampleDetails("Meal Planner V4 - Dynamic Instructions", SampleSection.Recipe)]
+    MealPlannerV4 = 1004,
+
+    [SampleDetails("Meal Planner V5 - RAG Powered", SampleSection.Recipe)]
+    MealPlannerV5 = 1005,
+
+    [SampleDetails("Meal Planner V6 - Per-User Memory", SampleSection.Recipe)]
+    MealPlannerV6 = 1006,
+
+    [SampleDetails("Meal Planner V7 - Typed Memory Architecture", SampleSection.Recipe)]
+    MealPlannerV7 = 1007,
+
+    [SampleDetails("Jaeger Tracing (OpenTelemetry)", SampleSection.Observability)]
+    JaegerTracing = 1100,
 }
 
 public enum SampleSection
@@ -189,6 +294,15 @@ public enum SampleSection
 
     [Description("RAG (Retrieval Augmented Generation)")]
     Section8,
+
+    [Description("CV Screening & Interview Coordinator")]
+    CV_Screening,
+
+    [Description("AI-Powered Meal Plan Generator")]
+    Recipe,
+
+    [Description("Observability (OpenTelemetry / Jaeger)")]
+    Observability,
 }
 
 public class SampleDetailsAttribute(string name, SampleSection section) : Attribute

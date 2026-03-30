@@ -5,6 +5,7 @@ using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 using Microsoft.Extensions.VectorData;
 using Microsoft.SemanticKernel.Connectors.SqliteVec;
+using OpenAI;
 using OpenAI.Chat;
 using Samples.SampleUtilities;
 using System.ClientModel;
@@ -18,8 +19,8 @@ public static class SearchAsATool
     public static async Task RunSample()
     {
         //Create Raw Connection
-        (string endpoint, string apiKey) = SecretManager.GetAzureOpenAIApiKeyBasedCredentials();
-        AzureOpenAIClient client = new AzureOpenAIClient(new Uri(endpoint), new ApiKeyCredential(apiKey));
+        string apiKey = SecretManager.GetOpenAIApiKey();
+        OpenAIClient client = new OpenAIClient(apiKey);
 
         //Define Embedding Generator
         IEmbeddingGenerator<string, Embedding<float>> embeddingGenerator = client
@@ -41,7 +42,7 @@ public static class SearchAsATool
 
         //Create Agent
         ChatClientAgent agent = client
-            .GetChatClient("gpt-4.1")
+            .GetChatClient("gpt-4.1-nano")
             .AsAIAgent(
                 instructions: "You are an expert in the companies Internal Knowledge Base (use the 'search_knowledge' tool)",
                 tools: [AIFunctionFactory.Create(searchTool.Search, "search_knowledge")]);

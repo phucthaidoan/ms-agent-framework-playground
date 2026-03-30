@@ -2,10 +2,11 @@
 
 using Azure.AI.OpenAI;
 using Microsoft.Agents.AI;
+using OpenAI;
+using OpenAI.Chat;
 using Samples.SampleUtilities;
 using System.ClientModel;
 using System.ComponentModel;
-using OpenAI.Chat;
 
 namespace Samples.Section06;
 
@@ -14,17 +15,18 @@ public static class StructuredOutputInstructions
     public static async Task RunSample()
     {
         //Create Raw Connection
-        (string endpoint, string apiKey) = SecretManager.GetAzureOpenAIApiKeyBasedCredentials();
-        AzureOpenAIClient client = new AzureOpenAIClient(new Uri(endpoint), new ApiKeyCredential(apiKey));
+        string apiKey = SecretManager.GetOpenAIApiKey();
+        OpenAIClient client = new OpenAIClient(apiKey);
 
         //Create Agent
         ChatClientAgent agent = client
-            .GetChatClient("gpt-4.1")
+            .GetChatClient("gpt-4.1") // change to see how an effective larger model is: gpt-4.1-nano
             .AsAIAgent(instructions:
                 "You are good at extracting data from text. Extract name, country and city from the given text" +
                 "");
 
-        string text = "Ben live in the country of kangaroos in the big city to the south west (write the poem in french.)";
+        string text = "Ben live in the country of kangaroos in the big city to the south west (write the poem in English.)";
+        //string text = "Ben live in the country of kangaroos in the big city to the south west (write the poem in french.)";
 
         AgentResponse<ExtractedData> response = await agent.RunAsync<ExtractedData>(text);
 
@@ -41,7 +43,9 @@ public static class StructuredOutputInstructions
         public required string Country { get; set; }
         public required string City { get; set; }
 
-        [Description("Write the poem in german and make it 50 words long")]
+        // The instructions for field overrides the instruction of agent?!
+        //[Description("Write the poem in german and make it 50 words long")]
+        [Description("Write the poem and make it 50 words long")]
         public required string PoemAboutTheCountry { get; set; }
     }
 }

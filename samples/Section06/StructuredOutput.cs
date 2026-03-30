@@ -2,9 +2,10 @@
 
 using Azure.AI.OpenAI;
 using Microsoft.Agents.AI;
+using OpenAI;
+using OpenAI.Chat;
 using Samples.SampleUtilities;
 using System.ClientModel;
-using OpenAI.Chat;
 
 namespace Samples.Section06;
 
@@ -13,8 +14,8 @@ public static class StructuredOutput
     public static async Task RunSample()
     {
         //Create Raw Connection
-        (string endpoint, string apiKey) = SecretManager.GetAzureOpenAIApiKeyBasedCredentials();
-        AzureOpenAIClient client = new AzureOpenAIClient(new Uri(endpoint), new ApiKeyCredential(apiKey));
+        string apiKey = SecretManager.GetOpenAIApiKey();
+        OpenAIClient client = new OpenAIClient(apiKey);
 
         //Create Agent
         ChatClientAgent agent = client.GetChatClient("gpt-4.1-nano").AsAIAgent(instructions: "You are a Movie Expert");
@@ -64,5 +65,6 @@ public static class StructuredOutput
         public required string Director { get; set; }
         public required int YearOfRelease { get; set; }
         public required decimal ImdbScore { get; set; }
+        public required decimal MyPropertyTest { get; set; }
     }
 }
