@@ -7,8 +7,6 @@ Introduction course on the Microsoft Agent Framework in C#, teaching you:
 - Structured Output
 - Retrival Augmented Generation (RAG)
 
-Learn of: [Udemy](https://www.udemy.com/course/ai-in-c-sharp-using-the-microsoft-agent-framework/?referralCode=34AF1BFA81E5E0C407A2)
+## Inspired by the Course
 
-## My other Microsoft Agent Framework Resources
-- [YouTube Channel](https://www.youtube.com/@rwj_dk) with various educational videos
-- [Agent Framework Toolkit](https://github.com/rwjdk/AgentFrameworkToolkit); my series of NuGet Packages that make Agent Framework even easier to work with.
+Inspired by [rwjdk/agent-framework-course](https://github.com/rwjdk/agent-framework-course), this repository adds more samples beyond the course.

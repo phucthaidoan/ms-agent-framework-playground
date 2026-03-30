@@ -3,6 +3,7 @@
 using Azure.AI.OpenAI;
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
+using OpenAI;
 using OpenAI.Chat;
 using Samples.SampleUtilities;
 using System.ClientModel;
@@ -19,14 +20,22 @@ public static class LifeOfAnLlmCall
         using CustomClientHttpHandler handler = new CustomClientHttpHandler();
         using HttpClient httpClient = new HttpClient(handler);
 
-        (string endpoint, string apiKey) = SecretManager.GetAzureOpenAIApiKeyBasedCredentials();
-        AzureOpenAIClient client = new(new Uri(endpoint), new ApiKeyCredential(apiKey), new AzureOpenAIClientOptions
-        {
-            Transport = new HttpClientPipelineTransport(httpClient)
-        });
+        //(string endpoint, string apiKey) = SecretManager.GetAzureOpenAIApiKeyBasedCredentials();
+        //AzureOpenAIClient client = new(new Uri(endpoint), new ApiKeyCredential(apiKey), new AzureOpenAIClientOptions
+        //{
+        //    Transport = new HttpClientPipelineTransport(httpClient)
+        //});
+
+        string apiKey = SecretManager.GetOpenAIApiKey();
+        OpenAIClient client = new OpenAIClient(
+            new ApiKeyCredential(key: apiKey),
+            new OpenAIClientOptions
+            {
+                Transport = new HttpClientPipelineTransport(httpClient)
+            });
 
         ChatClientAgent agent = client
-            .GetChatClient("gpt-5")
+            .GetChatClient("gpt-4.1-nano")
             .AsAIAgent(
                 tools: [AIFunctionFactory.Create(GetWeather)],
                 instructions: "Speak like a pirate!"

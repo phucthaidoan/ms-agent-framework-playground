@@ -1,6 +1,7 @@
 ﻿using Azure.AI.OpenAI;
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
+using OpenAI;
 using OpenAI.Chat;
 using Samples.SampleUtilities;
 using System.ClientModel;
@@ -13,11 +14,11 @@ public static class OtherAgentsAsTools
     public static async Task RunSample()
     {
         //Create Raw Connection
-        (string endpoint, string apiKey) = SecretManager.GetAzureOpenAIApiKeyBasedCredentials();
-        AzureOpenAIClient client = new AzureOpenAIClient(new Uri(endpoint), new ApiKeyCredential(apiKey));
+        string apiKey = SecretManager.GetOpenAIApiKey();
+        OpenAIClient client = new OpenAIClient(apiKey);
 
         ChatClientAgent astronomyAgent = client
-            .GetChatClient("gpt-5.2")
+            .GetChatClient("gpt-4.1-nano")
             .AsAIAgent(
                 name: "AstronomyAgent",
                 instructions: "You an expert in Astronomy");

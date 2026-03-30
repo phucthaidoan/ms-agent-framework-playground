@@ -1,11 +1,12 @@
 ﻿// ReSharper disable ClassNeverInstantiated.Local
 
-using System.ClientModel;
 using Azure.AI.OpenAI;
 using Microsoft.Extensions.AI;
 using Microsoft.Extensions.VectorData;
 using Microsoft.SemanticKernel.Connectors.SqliteVec;
+using OpenAI;
 using Samples.SampleUtilities;
+using System.ClientModel;
 
 namespace Samples.Section08;
 
@@ -29,8 +30,8 @@ public static class IngestDataIntoVectorStore
         ];
 
         //Create Raw Connection
-        (string endpoint, string apiKey) = SecretManager.GetAzureOpenAIApiKeyBasedCredentials();
-        AzureOpenAIClient client = new AzureOpenAIClient(new Uri(endpoint), new ApiKeyCredential(apiKey));
+        string apiKey = SecretManager.GetOpenAIApiKey();
+        OpenAIClient client = new OpenAIClient(apiKey);
 
         IEmbeddingGenerator<string, Embedding<float>> embeddingGenerator = client
             .GetEmbeddingClient("text-embedding-3-small")

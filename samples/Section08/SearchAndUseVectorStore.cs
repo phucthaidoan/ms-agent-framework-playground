@@ -5,6 +5,7 @@ using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 using Microsoft.Extensions.VectorData;
 using Microsoft.SemanticKernel.Connectors.SqliteVec;
+using OpenAI;
 using OpenAI.Chat;
 using Samples.SampleUtilities;
 using System.ClientModel;
@@ -19,8 +20,8 @@ public static class SearchAndUseVectorStore
     public static async Task RunSample()
     {
         //Create Raw Connection
-        (string endpoint, string apiKey) = SecretManager.GetAzureOpenAIApiKeyBasedCredentials();
-        AzureOpenAIClient client = new AzureOpenAIClient(new Uri(endpoint), new ApiKeyCredential(apiKey));
+        string apiKey = SecretManager.GetOpenAIApiKey();
+        OpenAIClient client = new OpenAIClient(apiKey);
 
         //Define Embedding Generator
         IEmbeddingGenerator<string, Embedding<float>> embeddingGenerator = client

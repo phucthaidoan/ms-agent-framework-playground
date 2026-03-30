@@ -1,9 +1,10 @@
-﻿using System.ClientModel;
-using System.Diagnostics;
-using Azure.AI.OpenAI;
+﻿using Azure.AI.OpenAI;
 using Microsoft.Agents.AI;
+using OpenAI;
 using OpenAI.Chat;
 using Samples.SampleUtilities;
+using System.ClientModel;
+using System.Diagnostics;
 
 namespace Samples.Section03;
 
@@ -12,23 +13,29 @@ public static class TokenUsage
     public static async Task RunSample()
     {
         //Create Raw Connection
-        (string endpoint, string apiKey) = SecretManager.GetAzureOpenAIApiKeyBasedCredentials();
-        AzureOpenAIClient client = new AzureOpenAIClient(new Uri(endpoint), new ApiKeyCredential(apiKey));
+        string apiKey = SecretManager.GetOpenAIApiKey();
+        OpenAIClient client = new OpenAIClient(apiKey);
 
         await RunByModel(client, "gpt-4.1-nano");
-        await RunByModel(client, "gpt-5-nano");
-        await RunByModel(client, "gpt-5.2");
+        //await RunByModel(client, "o4-mini"); // reasoning model
+        //await RunByModel(client, "gpt-5.2");
     }
 
-    private static async Task RunByModel(AzureOpenAIClient client, string model)
+    private static async Task RunByModel(OpenAIClient client, string model)
     {
-        Output.Gray($"Testing Model: {model} on Azure OpenAI");
+        Output.Gray($"Testing Model: {model} on OpenAI");
         Console.WriteLine();
-
+        
         //Create Agent
+        /*ChatClientAgent agent = client.GetChatClient(model).AsAIAgent("You are an expert in the companies Internal Knowledge Base. " +
+            "Here are some internal knowledge base: " +
+            "- Question: What is the WI-FI Password at the Office?. Answer: The Password is 'Guest42'");
+
+        string? message = "What is wifi password?";*/
+
         ChatClientAgent agent = client.GetChatClient(model).AsAIAgent();
 
-        string? message = "What is the capital of France?";
+        string? message = "What is the capital of VietNam? Provide short answer.";
 
         Output.Blue("Input:");
         Console.WriteLine(message);
