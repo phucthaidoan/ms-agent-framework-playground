@@ -7,6 +7,7 @@ using Samples.ConversationMemory.V5_CustomContextProvider;
 using Samples.ConversationMemory.V6_Compaction;
 using Samples.ConversationMemory.V7_Integration;
 using Samples.ConversationMemory.V8_ToolCallHistory;
+using Samples.ConversationMemory.V2b_FileBackedSession;
 using Samples.CV_Screening;
 using Samples.Recipe;
 using Samples.Recipe.V1_HostLoop;
@@ -194,6 +195,9 @@ public static class SampleManager
             case Sample.SupportBotV8:
                 await SupportBotV8.RunSample();
                 break;
+            case Sample.SupportBotV2b:
+                await SupportBotV2b.RunSample();
+                break;
             case Sample.JaegerTracing:
                 await JaegerTracing.RunSample();
                 break;
@@ -337,6 +341,9 @@ public enum Sample
 
     [SampleDetails("Support Bot V8 - Tool Calls in History", SampleSection.ConversationMemory)]
     SupportBotV8 = 1208,
+
+    [SampleDetails("Support Bot V2b - File-Backed Session Persistence", SampleSection.ConversationMemory)]
+    SupportBotV2b = 1209,
 }
 
 public enum SampleSection
