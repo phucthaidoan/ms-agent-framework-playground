@@ -1,5 +1,6 @@
 ﻿using Samples.ConversationMemory.V1_BasicSession;
 using Samples.ConversationMemory.V2_SessionSerialization;
+using Samples.ConversationMemory.V2b_FileBackedSession;
 using Samples.ConversationMemory.V3_InMemoryHistory;
 using Samples.ConversationMemory.V4a_CustomHistoryProvider_File;
 using Samples.ConversationMemory.V4b_CustomHistoryProvider_Postgres;
@@ -7,7 +8,6 @@ using Samples.ConversationMemory.V5_CustomContextProvider;
 using Samples.ConversationMemory.V6_Compaction;
 using Samples.ConversationMemory.V7_Integration;
 using Samples.ConversationMemory.V8_ToolCallHistory;
-using Samples.ConversationMemory.V2b_FileBackedSession;
 using Samples.CV_Screening;
 using Samples.Recipe;
 using Samples.Recipe.V1_HostLoop;

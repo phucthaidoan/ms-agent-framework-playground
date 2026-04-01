@@ -100,7 +100,7 @@ For `ChatHistoryProvider` and `AIContextProviders`, use `ChatClientAgentOptions`
 
 ## Running the Samples
 
-From the `SampleConsoleRunner`, select samples **1200–1207** from the interactive menu.
+From the `SampleConsoleRunner`, select samples **1200–1209** from the interactive menu.
 
 Sample numbers:
 - 1200 — V1 Basic Session

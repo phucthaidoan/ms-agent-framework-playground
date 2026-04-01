@@ -1,6 +1,5 @@
 using Microsoft.Agents.AI;
 using OpenAI;
-using OpenAI.Chat;
 using Samples.SampleUtilities;
 using System.Text.Json;
 
