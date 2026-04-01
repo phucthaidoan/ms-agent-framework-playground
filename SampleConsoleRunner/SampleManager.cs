@@ -1,4 +1,13 @@
-﻿using Samples.CV_Screening;
+﻿using Samples.ConversationMemory.V1_BasicSession;
+using Samples.ConversationMemory.V2_SessionSerialization;
+using Samples.ConversationMemory.V3_InMemoryHistory;
+using Samples.ConversationMemory.V4a_CustomHistoryProvider_File;
+using Samples.ConversationMemory.V4b_CustomHistoryProvider_Postgres;
+using Samples.ConversationMemory.V5_CustomContextProvider;
+using Samples.ConversationMemory.V6_Compaction;
+using Samples.ConversationMemory.V7_Integration;
+using Samples.ConversationMemory.V8_ToolCallHistory;
+using Samples.CV_Screening;
 using Samples.Recipe;
 using Samples.Recipe.V1_HostLoop;
 using Samples.Recipe.V2_ChatLoop;
@@ -7,6 +16,7 @@ using Samples.Recipe.V4_DynamicInstructions;
 using Samples.Recipe.V5_RAG;
 using Samples.Recipe.V6_UserMemory;
 using Samples.Recipe.V7_TypedMemory;
+using Samples.Recipe.V8_ContextProviders;
 using Samples.CV_Screening.V1_AgentAsTool;
 using Samples.CV_Screening.V2_ChatLoop;
 using Samples.CV_Screening.V3_Streaming;
@@ -154,6 +164,36 @@ public static class SampleManager
             case Sample.MealPlannerV7:
                 await MealPlannerV7.RunSample();
                 break;
+            case Sample.MealPlannerV8:
+                await MealPlannerV8.RunSample();
+                break;
+            case Sample.SupportBotV1:
+                await SupportBotV1.RunSample();
+                break;
+            case Sample.SupportBotV2:
+                await SupportBotV2.RunSample();
+                break;
+            case Sample.SupportBotV3:
+                await SupportBotV3.RunSample();
+                break;
+            case Sample.SupportBotV4a:
+                await SupportBotV4a.RunSample();
+                break;
+            case Sample.SupportBotV4b:
+                await SupportBotV4b.RunSample();
+                break;
+            case Sample.SupportBotV5:
+                await SupportBotV5.RunSample();
+                break;
+            case Sample.SupportBotV6:
+                await SupportBotV6.RunSample();
+                break;
+            case Sample.SupportBotV7:
+                await SupportBotV7.RunSample();
+                break;
+            case Sample.SupportBotV8:
+                await SupportBotV8.RunSample();
+                break;
             case Sample.JaegerTracing:
                 await JaegerTracing.RunSample();
                 break;
@@ -265,8 +305,38 @@ public enum Sample
     [SampleDetails("Meal Planner V7 - Typed Memory Architecture", SampleSection.Recipe)]
     MealPlannerV7 = 1007,
 
+    [SampleDetails("Meal Planner V8 - Context Providers", SampleSection.Recipe)]
+    MealPlannerV8 = 1008,
+
     [SampleDetails("Jaeger Tracing (OpenTelemetry)", SampleSection.Observability)]
     JaegerTracing = 1100,
+
+    [SampleDetails("Support Bot V1 - Basic Session", SampleSection.ConversationMemory)]
+    SupportBotV1 = 1200,
+
+    [SampleDetails("Support Bot V2 - Session Serialization", SampleSection.ConversationMemory)]
+    SupportBotV2 = 1201,
+
+    [SampleDetails("Support Bot V3 - InMemory History", SampleSection.ConversationMemory)]
+    SupportBotV3 = 1202,
+
+    [SampleDetails("Support Bot V4a - Custom History Provider (File)", SampleSection.ConversationMemory)]
+    SupportBotV4a = 1203,
+
+    [SampleDetails("Support Bot V4b - Custom History Provider (PostgreSQL)", SampleSection.ConversationMemory)]
+    SupportBotV4b = 1204,
+
+    [SampleDetails("Support Bot V5 - Custom Context Provider", SampleSection.ConversationMemory)]
+    SupportBotV5 = 1205,
+
+    [SampleDetails("Support Bot V6 - Compaction Strategies", SampleSection.ConversationMemory)]
+    SupportBotV6 = 1206,
+
+    [SampleDetails("Support Bot V7 - Integration", SampleSection.ConversationMemory)]
+    SupportBotV7 = 1207,
+
+    [SampleDetails("Support Bot V8 - Tool Calls in History", SampleSection.ConversationMemory)]
+    SupportBotV8 = 1208,
 }
 
 public enum SampleSection
@@ -303,6 +373,9 @@ public enum SampleSection
 
     [Description("Observability (OpenTelemetry / Jaeger)")]
     Observability,
+
+    [Description("Conversations & Memory")]
+    ConversationMemory,
 }
 
 public class SampleDetailsAttribute(string name, SampleSection section) : Attribute
