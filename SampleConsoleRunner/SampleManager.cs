@@ -1,5 +1,6 @@
 ﻿using Samples.ConversationMemory.V1_BasicSession;
 using Samples.ConversationMemory.V2_SessionSerialization;
+using Samples.ConversationMemory.V2b_FileBackedSession;
 using Samples.ConversationMemory.V3_InMemoryHistory;
 using Samples.ConversationMemory.V4a_CustomHistoryProvider_File;
 using Samples.ConversationMemory.V4b_CustomHistoryProvider_Postgres;
@@ -194,6 +195,9 @@ public static class SampleManager
             case Sample.SupportBotV8:
                 await SupportBotV8.RunSample();
                 break;
+            case Sample.SupportBotV2b:
+                await SupportBotV2b.RunSample();
+                break;
             case Sample.JaegerTracing:
                 await JaegerTracing.RunSample();
                 break;
@@ -337,6 +341,9 @@ public enum Sample
 
     [SampleDetails("Support Bot V8 - Tool Calls in History", SampleSection.ConversationMemory)]
     SupportBotV8 = 1208,
+
+    [SampleDetails("Support Bot V2b - File-Backed Session Persistence", SampleSection.ConversationMemory)]
+    SupportBotV2b = 1209,
 }
 
 public enum SampleSection

@@ -24,6 +24,7 @@ A support bot naturally motivates every concept:
 |--------|---------|------------|
 | **V1 — Basic Session** | `AgentSession` enables multi-turn conversation | ⭐ |
 | **V2 — Session Serialization** | Persist and restore sessions across restarts | ⭐⭐ |
+| **V2b — File-Backed Session** | Write serialized session to disk; resume by typing the file path back; error handling for missing/corrupt files | ⭐⭐ |
 | **V3 — InMemory History** | Access raw conversation history from the built-in provider | ⭐⭐ |
 | **V4a — File History Provider** | Implement `ChatHistoryProvider` with file-system storage | ⭐⭐⭐ |
 | **V4b — PostgreSQL History Provider** | Same interface, real database (Docker via Testcontainers) | ⭐⭐⭐ |
@@ -99,11 +100,12 @@ For `ChatHistoryProvider` and `AIContextProviders`, use `ChatClientAgentOptions`
 
 ## Running the Samples
 
-From the `SampleConsoleRunner`, select samples **1200–1207** from the interactive menu.
+From the `SampleConsoleRunner`, select samples **1200–1209** from the interactive menu.
 
 Sample numbers:
 - 1200 — V1 Basic Session
 - 1201 — V2 Session Serialization
+- 1209 — V2b File-Backed Session Persistence
 - 1202 — V3 InMemory History
 - 1203 — V4a File History Provider
 - 1204 — V4b PostgreSQL History Provider
