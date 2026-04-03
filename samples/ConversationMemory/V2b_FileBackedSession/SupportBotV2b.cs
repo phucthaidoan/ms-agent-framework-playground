@@ -39,7 +39,71 @@ public static class SupportBotV2b
                     instructions: "You are a helpful customer support agent. Be concise.",
                     name: "SupportBot");
 
+        // ─── Ask upfront: resume or start fresh? ──────────────────────────────────
+        Output.Yellow("Do you have a saved session file to resume? (leave blank to start fresh)");
+        Console.Write("Session file path > ");
+        string inputPath = (Console.ReadLine() ?? string.Empty).Trim();
+
+        if (!string.IsNullOrEmpty(inputPath))
+        {
+            // ─── Resume path: read file, deserialize, continue ────────────────────
+            Output.Separator();
+            Output.Yellow("Resuming session from file...");
+            Output.Separator(false);
+
+            string restoredJson;
+            try
+            {
+                restoredJson = await File.ReadAllTextAsync(inputPath);
+            }
+            catch (FileNotFoundException)
+            {
+                Output.Red($"File not found: {inputPath}");
+                Output.Gray("Ensure the path is correct and the session was saved before the process exited.");
+                return;
+            }
+            catch (Exception ex) when (ex is DirectoryNotFoundException or UnauthorizedAccessException)
+            {
+                Output.Red($"Could not read file: {ex.Message}");
+                return;
+            }
+
+            JsonElement restoredElement;
+            try
+            {
+                restoredElement = JsonSerializer.Deserialize<JsonElement>(restoredJson);
+            }
+            catch (JsonException)
+            {
+                Output.Red("Invalid JSON. The file may be corrupt or from a different session format.");
+                return;
+            }
+
+            // KEY: A completely new agent instance — same configuration as the original
+            AIAgent newAgent = CreateAgent(apiKey);
+            AgentSession restoredSession = await newAgent.DeserializeSessionAsync(restoredElement);
+
+            Output.Gray("New agent created. Session restored from file.");
+            Output.Separator();
+
+            Output.Yellow("PHASE 5: Continue conversation — agent recalls history from before restart");
+            Output.Separator(false);
+
+            Output.Gray("User: Can you summarize what I told you so far?");
+            string r3 = (await newAgent.RunAsync("Can you summarize what I told you so far?", restoredSession)).Text;
+            Output.Green($"Bot:  {r3}");
+
+            Output.Separator();
+            Output.Yellow("KEY LEARNING: The file path stands in for any durable key —");
+            Output.Yellow("a database row ID, a Redis key, a blob storage path.");
+            Output.Yellow("The serialized JSON is the portable session state.");
+            Output.Gray("IMPORTANT: Always restore with the SAME agent configuration that created the session.");
+            Output.Gray("NOTE: In production, consider encrypting session JSON — it contains conversation history.");
+            return;
+        }
+
         // ─── Phase 1: Build up conversation history ───────────────────────────────
+        Output.Separator();
         Output.Yellow("PHASE 1: Build up conversation history");
         Output.Separator(false);
 
@@ -76,64 +140,7 @@ public static class SupportBotV2b
         Output.Yellow("PHASE 3: === SIMULATED PROCESS EXIT ===");
         Output.Gray("In a real app, this is where your process would stop.");
         Output.Gray("The conversation lives only in the file above.");
-        Output.Gray("The file path stands in for any durable key — a DB row ID, a Redis key, a blob path.");
+        Output.Gray("Re-run this sample and paste the file path above to resume.");
         Output.Separator();
-
-        // ─── Phase 4: Prompt user, read file, deserialize ─────────────────────────
-        Output.Yellow("PHASE 4: Resume from file");
-        Output.Separator(false);
-        Output.Gray("Type the session file path to resume:");
-        Console.Write("> ");
-        string inputPath = (Console.ReadLine() ?? string.Empty).Trim();
-
-        string restoredJson;
-        try
-        {
-            restoredJson = await File.ReadAllTextAsync(inputPath);
-        }
-        catch (FileNotFoundException)
-        {
-            Output.Red($"File not found: {inputPath}");
-            Output.Gray("Ensure the path is correct and the session was saved before the process exited.");
-            return;
-        }
-        catch (Exception ex) when (ex is DirectoryNotFoundException or UnauthorizedAccessException)
-        {
-            Output.Red($"Could not read file: {ex.Message}");
-            return;
-        }
-
-        JsonElement restoredElement;
-        try
-        {
-            restoredElement = JsonSerializer.Deserialize<JsonElement>(restoredJson);
-        }
-        catch (JsonException)
-        {
-            Output.Red("Invalid JSON. The file may be corrupt or from a different session format.");
-            return;
-        }
-
-        // KEY: A completely new agent instance — same configuration as Phase 1
-        AIAgent newAgent = CreateAgent(apiKey);
-        AgentSession restoredSession = await newAgent.DeserializeSessionAsync(restoredElement);
-
-        Output.Gray("New agent created. Session restored from file.");
-        Output.Separator();
-
-        // ─── Phase 5: Continue conversation with restored session ─────────────────
-        Output.Yellow("PHASE 5: Continue conversation — agent recalls history from before restart");
-        Output.Separator(false);
-
-        Output.Gray("User: Can you summarize what I told you so far?");
-        string r3 = (await newAgent.RunAsync("Can you summarize what I told you so far?", restoredSession)).Text;
-        Output.Green($"Bot:  {r3}");
-
-        Output.Separator();
-        Output.Yellow("KEY LEARNING: The file path stands in for any durable key —");
-        Output.Yellow("a database row ID, a Redis key, a blob storage path.");
-        Output.Yellow("The serialized JSON is the portable session state.");
-        Output.Gray("IMPORTANT: Always restore with the SAME agent configuration that created the session.");
-        Output.Gray("NOTE: In production, consider encrypting session JSON — it contains conversation history.");
     }
 }
