@@ -23,6 +23,7 @@ using Samples.CV_Screening.V2_ChatLoop;
 using Samples.CV_Screening.V3_Streaming;
 using Samples.CV_Screening.V4_MultiRole;
 using Samples.CV_Screening.V5_RAG;
+using Samples.AgentPipeline.Middleware;
 using Samples.Observability;
 using Samples.SampleUtilities;
 using Samples.Section03;
@@ -198,6 +199,9 @@ public static class SampleManager
             case Sample.SupportBotV2b:
                 await SupportBotV2b.RunSample();
                 break;
+            case Sample.AgentMiddleware:
+                await AgentMiddleware.RunSample();
+                break;
             case Sample.JaegerTracing:
                 await JaegerTracing.RunSample();
                 break;
@@ -344,6 +348,9 @@ public enum Sample
 
     [SampleDetails("Support Bot V2b - File-Backed Session Persistence", SampleSection.ConversationMemory)]
     SupportBotV2b = 1209,
+
+    [SampleDetails("Agent Middleware (PII, Guardrails, Function, HITL)", SampleSection.AgentPipeline)]
+    AgentMiddleware = 1300,
 }
 
 public enum SampleSection
@@ -383,6 +390,9 @@ public enum SampleSection
 
     [Description("Conversations & Memory")]
     ConversationMemory,
+
+    [Description("Agent Pipeline & Middleware")]
+    AgentPipeline,
 }
 
 public class SampleDetailsAttribute(string name, SampleSection section) : Attribute

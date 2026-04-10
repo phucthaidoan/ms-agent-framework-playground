@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="AgentPipeline\" />
     <Folder Include="Section09-13\" />
   </ItemGroup>
 
