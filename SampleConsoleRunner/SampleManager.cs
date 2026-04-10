@@ -25,6 +25,7 @@ using Samples.CV_Screening.V4_MultiRole;
 using Samples.CV_Screening.V5_RAG;
 using Samples.AgentPipeline.Middleware;
 using Samples.Observability;
+using Samples.Tools.UsingFunctionToolsWithApprovals;
 using Samples.SampleUtilities;
 using Samples.Section03;
 using Samples.Section04;
@@ -93,6 +94,9 @@ public static class SampleManager
                 break;
             case Sample.ToolCallingMiddleware:
                 await ToolCallingMiddleware.RunSample();
+                break;
+            case Sample.FunctionToolsWithApprovals:
+                await UsingFunctionToolsWithApprovals.RunSample();
                 break;
             case Sample.OtherAgentsAsTools:
                 await OtherAgentsAsTools.RunSample();
@@ -249,6 +253,9 @@ public enum Sample
 
     [SampleDetails("Tool Calling Middleware", SampleSection.Section5)]
     ToolCallingMiddleware = 505,
+
+    [SampleDetails("Function Tools with Approvals (HITL)", SampleSection.Section5)]
+    FunctionToolsWithApprovals = 506,
 
     [SampleDetails("Structured Output", SampleSection.Section6)]
     StructuredOutput = 600,
