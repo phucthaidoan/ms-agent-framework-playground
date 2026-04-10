@@ -1,4 +1,4 @@
-﻿using Samples.ConversationMemory.V1_BasicSession;
+using Samples.ConversationMemory.V1_BasicSession;
 using Samples.ConversationMemory.V2_SessionSerialization;
 using Samples.ConversationMemory.V2b_FileBackedSession;
 using Samples.ConversationMemory.V3_InMemoryHistory;
@@ -33,6 +33,7 @@ using Samples.Section05;
 using Samples.Section06;
 using Samples.Section07;
 using Samples.Section08;
+using Samples.StructuredOutput;
 using System.ComponentModel;
 using System.Reflection;
 
@@ -112,6 +113,9 @@ public static class SampleManager
                 break;
             case Sample.StructuredOutputInstructions:
                 await StructuredOutputInstructions.RunSample();
+                break;
+            case Sample.StructuredOutputOpenAI:
+                await StructuredOutputOpenAI.RunSample();
                 break;
             case Sample.LifeOfAnLlmCall:
                 await LifeOfAnLlmCall.RunSample();
@@ -262,6 +266,9 @@ public enum Sample
     
     [SampleDetails("Structured Output (Instructions)", SampleSection.Section6)]
     StructuredOutputInstructions = 601,
+
+    [SampleDetails("Structured Output (OpenAI Step02)", SampleSection.Section6)]
+    StructuredOutputOpenAI = 602,
 
     [SampleDetails("The Life of an LLM Call", SampleSection.Section7)]
     LifeOfAnLlmCall = 700,
