@@ -1,0 +1,155 @@
+<Solution>
+  <Folder Name="/samples/" />
+  <Folder Name="/samples/concepts/" />
+  <Folder Name="/samples/concepts/agent-pipeline/" />
+  <Folder Name="/samples/concepts/agent-pipeline/middleware/">
+    <Project Path="samples/concepts/agent-pipeline/middleware/AgentMiddleware.csproj" />
+  </Folder>
+  <Folder Name="/samples/concepts/chat/" />
+  <Folder Name="/samples/concepts/chat/agent-session/">
+    <Project Path="samples/concepts/chat/agent-session/Chatloop.csproj" />
+  </Folder>
+  <Folder Name="/samples/concepts/chat/instructions/">
+    <Project Path="samples/concepts/chat/instructions/Instructions.csproj" />
+  </Folder>
+  <Folder Name="/samples/concepts/chat/streaming/">
+    <Project Path="samples/concepts/chat/streaming/NormalVsStreamingResponse.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/" />
+  <Folder Name="/samples/labs/conversation-memory/" />
+  <Folder Name="/samples/labs/conversation-memory/V1_BasicSession/">
+    <Project Path="samples/labs/conversation-memory/V1_BasicSession/SupportBotV1.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/conversation-memory/V2b_FileBackedSession/">
+    <Project Path="samples/labs/conversation-memory/V2b_FileBackedSession/SupportBotV2b.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/conversation-memory/V2_SessionSerialization/">
+    <Project Path="samples/labs/conversation-memory/V2_SessionSerialization/SupportBotV2.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/conversation-memory/V3_InMemoryHistory/">
+    <Project Path="samples/labs/conversation-memory/V3_InMemoryHistory/SupportBotV3.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/conversation-memory/V4a_CustomHistoryProvider_File/">
+    <Project Path="samples/labs/conversation-memory/V4a_CustomHistoryProvider_File/SupportBotV4a.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/conversation-memory/V4b_CustomHistoryProvider_Postgres/">
+    <Project Path="samples/labs/conversation-memory/V4b_CustomHistoryProvider_Postgres/SupportBotV4b.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/conversation-memory/V5_CustomContextProvider/">
+    <Project Path="samples/labs/conversation-memory/V5_CustomContextProvider/SupportBotV5.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/conversation-memory/V6_Compaction/">
+    <Project Path="samples/labs/conversation-memory/V6_Compaction/SupportBotV6.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/conversation-memory/V7_Integration/">
+    <Project Path="samples/labs/conversation-memory/V7_Integration/SupportBotV7.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/conversation-memory/V8_ToolCallHistory/">
+    <Project Path="samples/labs/conversation-memory/V8_ToolCallHistory/SupportBotV8.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/cv-screening/">
+    <Project Path="samples/labs/cv-screening/CvScreening.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/cv-screening/V1_AgentAsTool/">
+    <Project Path="samples/labs/cv-screening/V1_AgentAsTool/CvScreeningV1.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/cv-screening/V2_ChatLoop/">
+    <Project Path="samples/labs/cv-screening/V2_ChatLoop/CvScreeningV2.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/cv-screening/V3_Streaming/">
+    <Project Path="samples/labs/cv-screening/V3_Streaming/CvScreeningV3.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/cv-screening/V4_MultiRole/">
+    <Project Path="samples/labs/cv-screening/V4_MultiRole/CvScreeningV4.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/cv-screening/V5_RAG/">
+    <Project Path="samples/labs/cv-screening/V5_RAG/CvScreeningV5.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/recipe/">
+    <Project Path="samples/labs/recipe/MealPlanner.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/recipe/V1_HostLoop/">
+    <Project Path="samples/labs/recipe/V1_HostLoop/MealPlannerV1.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/recipe/V2_ChatLoop/">
+    <Project Path="samples/labs/recipe/V2_ChatLoop/MealPlannerV2.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/recipe/V3_Streaming/">
+    <Project Path="samples/labs/recipe/V3_Streaming/MealPlannerV3.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/recipe/V4_DynamicInstructions/">
+    <Project Path="samples/labs/recipe/V4_DynamicInstructions/MealPlannerV4.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/recipe/V5_RAG/">
+    <Project Path="samples/labs/recipe/V5_RAG/MealPlannerV5.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/recipe/V6_UserMemory/">
+    <Project Path="samples/labs/recipe/V6_UserMemory/MealPlannerV6.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/recipe/V7_TypedMemory/">
+    <Project Path="samples/labs/recipe/V7_TypedMemory/MealPlannerV7.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/recipe/V8_ContextProviders/">
+    <Project Path="samples/labs/recipe/V8_ContextProviders/MealPlannerV8.csproj" />
+  </Folder>
+  <Folder Name="/samples/concepts/life-of-llm-call/">
+    <Project Path="samples/concepts/life-of-llm-call/LifeOfAnLlmCall.csproj" />
+  </Folder>
+  <Folder Name="/samples/concepts/observability/">
+    <Project Path="samples/concepts/observability/JaegerTracing.csproj" />
+  </Folder>
+  <Folder Name="/samples/concepts/rag/" />
+  <Folder Name="/samples/concepts/rag/embedding-data/">
+    <Project Path="samples/concepts/rag/embedding-data/EmbeddingData.csproj" />
+  </Folder>
+  <Folder Name="/samples/concepts/rag/ingest-vector-store/">
+    <Project Path="samples/concepts/rag/ingest-vector-store/IngestVectorStore.csproj" />
+  </Folder>
+  <Folder Name="/samples/concepts/rag/search-and-use-vector-store/">
+    <Project Path="samples/concepts/rag/search-and-use-vector-store/SearchAndUseVectorStore.csproj" />
+  </Folder>
+  <Folder Name="/samples/concepts/rag/search-as-a-tool/">
+    <Project Path="samples/concepts/rag/search-as-a-tool/SearchAsATool.csproj" />
+  </Folder>
+  <Folder Name="/samples/concepts/rag/shared/">
+    <Project Path="samples/concepts/rag/shared/Rag.Shared.csproj" />
+  </Folder>
+  <Folder Name="/samples/concepts/structured-output/" />
+  <Folder Name="/samples/concepts/structured-output/instructions/">
+    <Project Path="samples/concepts/structured-output/instructions/StructuredOutputInstructions.csproj" />
+  </Folder>
+  <Folder Name="/samples/concepts/structured-output/openai-chatclient/">
+    <Project Path="samples/concepts/structured-output/openai-chatclient/StructuredOutputOpenAI.csproj" />
+  </Folder>
+  <Folder Name="/samples/concepts/structured-output/run-async-generic/">
+    <Project Path="samples/concepts/structured-output/run-async-generic/StructuredOutput.csproj" />
+  </Folder>
+  <Folder Name="/samples/concepts/token-usage/">
+    <Project Path="samples/concepts/token-usage/TokenUsage.csproj" />
+  </Folder>
+  <Folder Name="/samples/concepts/tools/" />
+  <Folder Name="/samples/concepts/tools/code-interpreter/">
+    <Project Path="samples/concepts/tools/code-interpreter/CodeInterpreter.csproj" />
+  </Folder>
+  <Folder Name="/samples/concepts/tools/consuming-mcp/">
+    <Project Path="samples/concepts/tools/consuming-mcp/ConsumingMcpTools.csproj" />
+  </Folder>
+  <Folder Name="/samples/concepts/tools/creating-tools/">
+    <Project Path="samples/concepts/tools/creating-tools/CreatingTools.csproj" />
+  </Folder>
+  <Folder Name="/samples/concepts/tools/function-tools-with-approvals/">
+    <Project Path="samples/concepts/tools/function-tools-with-approvals/UsingFunctionToolsWithApprovals.csproj" />
+  </Folder>
+  <Folder Name="/samples/concepts/tools/other-agents-as-tools/">
+    <Project Path="samples/concepts/tools/other-agents-as-tools/OtherAgentsAsTools.csproj" />
+  </Folder>
+  <Folder Name="/samples/concepts/tools/tool-calling-middleware/">
+    <Project Path="samples/concepts/tools/tool-calling-middleware/ToolCallingMiddleware.csproj" />
+  </Folder>
+  <Folder Name="/samples/concepts/tools/web-search/">
+    <Project Path="samples/concepts/tools/web-search/WebSearch.csproj" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/Learn.Shared/Learn.Shared.csproj" />
+  </Folder>
+</Solution>

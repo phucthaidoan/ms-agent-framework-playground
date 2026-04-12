@@ -100,16 +100,15 @@ For `ChatHistoryProvider` and `AIContextProviders`, use `ChatClientAgentOptions`
 
 ## Running the Samples
 
-From the `SampleConsoleRunner`, select samples **1200–1209** from the interactive menu.
+Run each lesson from the repository root with `dotnet run --project` (example paths):
 
-Sample numbers:
-- 1200 — V1 Basic Session
-- 1201 — V2 Session Serialization
-- 1209 — V2b File-Backed Session Persistence
-- 1202 — V3 InMemory History
-- 1203 — V4a File History Provider
-- 1204 — V4b PostgreSQL History Provider
-- 1205 — V5 Custom Context Provider
-- 1206 — V6 Compaction Strategies
-- 1207 — V7 Integration
-- 1208 — V8 Tool Calls in History
+- V1 — `samples/labs/conversation-memory/V1_BasicSession/SupportBotV1.csproj`
+- V2 — `samples/labs/conversation-memory/V2_SessionSerialization/SupportBotV2.csproj`
+- V2b — `samples/labs/conversation-memory/V2b_FileBackedSession/SupportBotV2b.csproj`
+- V3 — `samples/labs/conversation-memory/V3_InMemoryHistory/SupportBotV3.csproj`
+- V4a — `samples/labs/conversation-memory/V4a_CustomHistoryProvider_File/SupportBotV4a.csproj`
+- V4b — `samples/labs/conversation-memory/V4b_CustomHistoryProvider_Postgres/SupportBotV4b.csproj`
+- V5 — `samples/labs/conversation-memory/V5_CustomContextProvider/SupportBotV5.csproj`
+- V6 — `samples/labs/conversation-memory/V6_Compaction/SupportBotV6.csproj`
+- V7 — `samples/labs/conversation-memory/V7_Integration/SupportBotV7.csproj`
+- V8 — `samples/labs/conversation-memory/V8_ToolCallHistory/SupportBotV8.csproj`

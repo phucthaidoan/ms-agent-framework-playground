@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\src\Learn.Shared\Learn.Shared.csproj" />
+    <ProjectReference Include="..\shared\Rag.Shared.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\src\Learn.Shared\Learn.Shared.csproj" />
+    <ProjectReference Include="..\V4a_CustomHistoryProvider_File\SupportBotV4a.csproj" />
+    <ProjectReference Include="..\V5_CustomContextProvider\SupportBotV5.csproj" />
+  </ItemGroup>
+</Project>

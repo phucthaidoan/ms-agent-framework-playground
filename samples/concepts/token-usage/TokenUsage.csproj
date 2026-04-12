@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <UserSecretsId>f566ccee-4741-4269-beb3-d86caff55de6</UserSecretsId>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../../src/Learn.Shared/Learn.Shared.csproj" />
+  </ItemGroup>
+</Project>
