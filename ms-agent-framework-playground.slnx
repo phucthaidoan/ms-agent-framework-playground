@@ -5,6 +5,9 @@
   <Folder Name="/samples/concepts/agent-pipeline/middleware/">
     <Project Path="samples/concepts/agent-pipeline/middleware/AgentMiddleware.csproj" />
   </Folder>
+  <Folder Name="/samples/concepts/agent-pipeline/middleware-state/">
+    <Project Path="samples/concepts/agent-pipeline/middleware-state/MiddlewareState.csproj" />
+  </Folder>
   <Folder Name="/samples/concepts/chat/" />
   <Folder Name="/samples/concepts/chat/agent-session/">
     <Project Path="samples/concepts/chat/agent-session/Chatloop.csproj" />
@@ -64,6 +67,25 @@
   </Folder>
   <Folder Name="/samples/labs/cv-screening/V5_RAG/">
     <Project Path="samples/labs/cv-screening/V5_RAG/CvScreeningV5.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/freight-claims/" />
+  <Folder Name="/samples/labs/freight-claims/V1_FunctionTools/">
+    <Project Path="samples/labs/freight-claims/V1_FunctionTools/FreightClaimsV1.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/freight-claims/V2_AuditMiddleware/">
+    <Project Path="samples/labs/freight-claims/V2_AuditMiddleware/FreightClaimsV2.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/freight-claims/V3_ValueGuardrail/">
+    <Project Path="samples/labs/freight-claims/V3_ValueGuardrail/FreightClaimsV3.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/freight-claims/V4_ApprovalGate/">
+    <Project Path="samples/labs/freight-claims/V4_ApprovalGate/FreightClaimsV4.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/freight-claims/V5_TokenBudget/">
+    <Project Path="samples/labs/freight-claims/V5_TokenBudget/FreightClaimsV5.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/freight-claims/V6_RateLimiter/">
+    <Project Path="samples/labs/freight-claims/V6_RateLimiter/FreightClaimsV6.csproj" />
   </Folder>
   <Folder Name="/samples/labs/recipe/">
     <Project Path="samples/labs/recipe/MealPlanner.csproj" />
