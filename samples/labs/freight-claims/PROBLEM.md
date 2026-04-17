@@ -28,6 +28,7 @@ budget gate to protect against oversized claim submissions.
 | No function tools: agent guesses cargo type | Misclassification — wrong payout decision | V1 FunctionTools |
 | No function calling middleware: ApproveClaim fires without consent | Rejected claim approved in system without reviewer | V4 ApprovalGateMiddleware |
 | No IChatClient middleware: 2000-token claim sent to LLM | Unexpected token cost + possible truncation errors | V5 TokenBudgetMiddleware |
+| No rate limiting: 50 rapid claim submissions exhaust OpenAI quota in seconds | API cost spike + 429 errors for all subsequent requests in the window | V6 RateLimitingChatClient |
 
 ---
 
@@ -40,6 +41,7 @@ budget gate to protect against oversized claim submissions.
 | V3_ValueGuardrail | Stacked Middleware + Early-Exit | High-value claims intercepted before LLM is called |
 | V4_ApprovalGate | Function Calling Middleware | Human-in-the-loop gate at tool invocation level |
 | V5_TokenBudget | IChatClient Middleware | Token budget enforcer at the innermost pipeline layer |
+| V6_RateLimiter | Stacked IChatClient Middleware + DelegatingChatClient | Rate limiter (innermost) + token budget (outer) stacked; construction order determines which gate fires first |
 
 ---
 
@@ -76,3 +78,13 @@ all other function calls (like `LookupShipment`) through without interruption.
 Yes — because AuditMiddleware is the outer wrapper. Its post-run code runs after ValueGuardrailMiddleware
 *returns* (whether that return came from calling innerAgent or from early-exit). The audit log will show
 `[AUDIT POST]` with the escalation response, proving the guardrail fired.
+
+**Q6: Two IChatClient middlewares are stacked — TokenBudgetMiddleware and RateLimitingChatClient. What determines which fires first?**
+
+Construction order. `rateLimitedClient.AsBuilder().Use(getResponseFunc: TokenBudgetMiddleware, ...)` wraps
+`RateLimitingChatClient` from the outside, making `TokenBudgetMiddleware` the outer wrapper that fires first on
+every request. The same rule applies as with agent-run middleware: the first `.Use()` call is outermost. The
+rate limiter sits closer to the wire — last middleware before OpenAI. A key consequence: oversized requests are
+rejected by the token budget before the rate limiter is even reached, so they don't consume a rate-limit permit.
+This ordering is intentional — cheap checks (character counting) sit outside expensive ones (permit acquisition),
+protecting quota from being wasted on requests that would have been rejected anyway.
