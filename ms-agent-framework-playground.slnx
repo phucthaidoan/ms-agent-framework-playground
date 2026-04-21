@@ -68,6 +68,19 @@
   <Folder Name="/samples/labs/cv-screening/V5_RAG/">
     <Project Path="samples/labs/cv-screening/V5_RAG/CvScreeningV5.csproj" />
   </Folder>
+  <Folder Name="/samples/labs/it-incident-response/" />
+  <Folder Name="/samples/labs/it-incident-response/V1_AgentBaseline/">
+    <Project Path="samples/labs/it-incident-response/V1_AgentBaseline/IncidentResponseV1.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/it-incident-response/V2_SimpleContextProvider/">
+    <Project Path="samples/labs/it-incident-response/V2_SimpleContextProvider/IncidentResponseV2.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/it-incident-response/V3_RunbookContextProvider/">
+    <Project Path="samples/labs/it-incident-response/V3_RunbookContextProvider/IncidentResponseV3.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/it-incident-response/V4_Compaction/">
+    <Project Path="samples/labs/it-incident-response/V4_Compaction/IncidentResponseV4.csproj" />
+  </Folder>
   <Folder Name="/samples/labs/freight-claims/" />
   <Folder Name="/samples/labs/freight-claims/V1_FunctionTools/">
     <Project Path="samples/labs/freight-claims/V1_FunctionTools/FreightClaimsV1.csproj" />
@@ -113,6 +126,22 @@
   </Folder>
   <Folder Name="/samples/labs/recipe/V8_ContextProviders/">
     <Project Path="samples/labs/recipe/V8_ContextProviders/MealPlannerV8.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/meal-mate/" />
+  <Folder Name="/samples/labs/meal-mate/V1_BaselineAgent/">
+    <Project Path="samples/labs/meal-mate/V1_BaselineAgent/V1_BaselineAgent.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/meal-mate/V2_ProfileProvider/">
+    <Project Path="samples/labs/meal-mate/V2_ProfileProvider/V2_ProfileProvider.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/meal-mate/V3_PantryProvider/">
+    <Project Path="samples/labs/meal-mate/V3_PantryProvider/V3_PantryProvider.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/meal-mate/V4_FactLoggingProvider/">
+    <Project Path="samples/labs/meal-mate/V4_FactLoggingProvider/V4_FactLoggingProvider.csproj" />
+  </Folder>
+  <Folder Name="/samples/labs/meal-mate/V5_AdvancedFiltering/">
+    <Project Path="samples/labs/meal-mate/V5_AdvancedFiltering/V5_AdvancedFiltering.csproj" />
   </Folder>
   <Folder Name="/samples/concepts/life-of-llm-call/">
     <Project Path="samples/concepts/life-of-llm-call/LifeOfAnLlmCall.csproj" />
